@@ -18,10 +18,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="nosotros" element={<NosotrosPage />} />
-          <Route path="servicios" element={<ServiciosPage />} />
-          <Route path="productos" element={<ProductosPage />} />
-          <Route path="contacto" element={<ContactosPage />} />
+          <Route path="/nosotros" element={<NosotrosPage />} />
+          <Route path="/servicios" element={<ServiciosPage />} />
+          <Route path="/productos" element={<ProductosPage />} />
+          <Route path="/contacto" element={<ContactosPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />

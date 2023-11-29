@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { NavLink } from "react-router-dom"; 
 
 const Header = () => {
   return (
@@ -16,13 +16,15 @@ const Header = () => {
             <i className="fa-solid fa-bars icon_menu"></i>
           </label>
           <nav>
+            
             <ul>
-              <li><Link to="/"><i className="fa-solid fa-house" style={{ color: '#ffffff' }}></i> INICIO</Link></li>
-              <li><Link to="/nosotros">NOSOTROS</Link></li>
-              <li><Link to="/servicios">SERVICIOS</Link></li>
-              <li><Link to="/productos">PRODUCTOS</Link></li> 
-              <li><Link to="/contacto">CONTACTO</Link></li>
+              <li><NavLink to="/" className={({isActive}) => isActive ? "activo" : undefined}><i className= "fa-solid fa-house" style={{ color: '#ffffff' }}></i> INICIO</NavLink></li>
+              <li><NavLink to="/nosotros" className={({isActive}) => isActive ? "activo" : undefined}>NOSOTROS</NavLink></li>
+              <li><NavLink to="/servicios" className={({isActive}) => isActive ? "activo" : undefined}>SERVICIOS</NavLink></li>
+              <li><NavLink to="/productos" className={({isActive}) => isActive ? "activo" : undefined}>PRODUCTOS</NavLink></li> 
+              <li><NavLink to="/contacto" className={({isActive}) => isActive ? "activo" : undefined}>CONTACTO</NavLink></li>
             </ul>
+            
           </nav>
         </div>
       </div>
