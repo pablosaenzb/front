@@ -10,7 +10,7 @@ const ProductosPage = () => {
     const cargarNovedades = async () => {
 
         setLoading(true);
-        const response = await axios.get('https://localhost:3000/api/novedades');
+        const response = await axios.get('http://localhost:3000/api/novedades');
         setNovedades(response.data);
         setLoading(false);
   
@@ -31,7 +31,8 @@ const ProductosPage = () => {
 
       <div className="contenedor_productos">
       <h2 style={{ color: 'white' }}>NUESTROS PRODUCTOS</h2>
-
+      <br></br>
+      <br></br>
       {loading ? (
         <p>Cargando...</p>
       ) : (

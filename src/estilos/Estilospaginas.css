@@ -1,3 +1,5 @@
+
+
 /******INICIO******/
 
 .contenedor_nosotros{
@@ -260,7 +262,9 @@
 .contenedor_productos    {grid-area: contenedor_productos;}
 .footer    { grid-area: footer;}
 
-
+.novedades {
+   color:white;  }
+  
 
 
 .contenedor_productos{
@@ -280,13 +284,13 @@
 
 
 .contenedor_productos  .listas_productos .productos{
-   text-align: center;
+   /*text-align: center;
    padding:3rem 2rem;
    background: #fff;
    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
    outline: .1rem solid #ff6600;
    outline-offset: -1rem;
-   cursor: pointer;
+   cursor: pointer;*/
 
 }
 
