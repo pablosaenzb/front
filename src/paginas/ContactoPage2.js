@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { use } from '../../../back/routes/admin/novedades';
 
 
 const ContactoPage = () => {
-//envio mail Segun los datos pedidos en API.JS
+//mail Segun los datos pedidos en API.JS
   const initialForm = {
     nombre: '',
     email:'',
@@ -11,10 +12,10 @@ const ContactoPage = () => {
     mensaje:''
   }
 
- const  [sending, setSending] = useState(false);
+  const  [sending, setSending] = useState(false);
   const  [msg, setMsg] = useState('');
   const  [formData, setFormData] = useState(initialForm);
- 
+
   const handleChange = e => {
     const {name, value} = e.target;
     setFormData(oldData => ({
@@ -33,35 +34,34 @@ const ContactoPage = () => {
     if (response.data.error === false) {
       setFormData(initialForm)
     }
-  } 
-
-
-//fin envio mail
+  }
+//fin mail
 
   return (
     <div className="contenedor_general_contacto">
       <div className="info_contacto">
-        <form  className='formulario' action='/contacto' method='post' onSubmit={handleSubmit}>
-          <label for="nombre">Tu Nombre:</label>
-          <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} size="30" maxLength="50" id="nombre" />
+        <form name="fvalida">
+          <label htmlFor="nombre">Tu Nombre:</label>
+          <input type="text" name="nombre" size="30" maxLength="50" id="nombre" />
           <br /><br />
-          <label for="email">Tu correo electrónico:</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} size="30" id="email" />
-          <br /><br/>
-          <label for="telefono">Tu telefono:</label>
-          <input type="text" name="telefono" value={formData.telefono} onChange={handleChange} size="30" id="telefono" />
-          <br /><br/>
-          <label for="mensaje">Mensaje:</label>
-          <textarea type="mensaje" name="mensaje" value={formData.mensaje} onChange={handleChange} id="mensaje" rows="4" cols="50"></textarea>
+          <label htmlFor="correo">Tu correo electrónico:</label>
+          <input type="email" name="correo" size="30" id="correo" />
           <br /><br />
-          <input type="submit" id="b1" value="Enviar" />
+          <label htmlFor="interes">Asunto:</label>
+          <select type="interes" name="interes" id="interes">
+            <option value="Clientes">Atención al cliente</option>
+            <option value="Proveedores">Armado de PC</option>
+            <option value="Elegir">Reclamo</option>
+            <option value="Comercial">Formar Parte</option>
+          </select>
+          <br /><br />
+          <label htmlFor="mensaje">Mensaje:</label>
+          <textarea type="mensaje" name="mensaje" id="mensaje" rows="4" cols="50"></textarea>
+          <br /><br />
+          <input type="button" id="b1" value="Enviar" />
           <p className="warnings" id="warnings"></p>
         </form>
-      {sending ? <p>Enviando...</p>: null}
-      {msg ? <p>{msg}</p>: null}
-      
       </div>
-
       <div className="contenedor_titulocontacto">
         <p className="titulo_contacto">CONTACTATE CON NOSOTROS</p>
         <p className="titulo_contacto">ESTAMOS PARA AYUDARTE</p>
